@@ -1,0 +1,80 @@
+Proceso main
+	H_V<-10000000
+	T<-0
+	TPLL<-0
+	TPS<-H_V
+	NS<-0
+	Escribir 'Tiempo Final '
+	Leer TF
+	Repetir
+		Repetir
+			Si TPLL<TPS Entonces
+				T<-TPLL
+				IA<-IntervaloArribo()
+				TPLL<-T+IA
+				A<-Arrepentimiento(NS,STA5,TOTA)
+				Si  NO A Entonces
+					NS<-NS+1
+					SLL<-SLL+T
+					Si NS=1 Entonces
+						STO<-STO+(T-ITO)
+						TA<-TiempoAtencion()
+						TPS<-T+TA
+						STA<-STA+TA
+					FinSi
+				FinSi
+			Sino
+				T<-TPS
+				NS<-NS-1
+				Si NS>=1 Entonces
+					TA<-TiempoAtencion()
+					TPS<-T+TA
+					STA<-STA+TA
+				Sino
+					ITO<-T
+					TPS<-H_V
+				FinSi
+				SS<-SS+T
+				NT<-NT+1
+			FinSi
+		Hasta Que T>TF
+		TPLL<-H_V
+	Hasta Que NS=0
+	PPS<-(SS-SLL)/NT
+	PEC<-(SS-SLL-STA)/NT
+	PTO<-(STO*100)/TF
+	Si TOTA!=0 Entonces
+		PR5<-(SA5*100)/TOTA
+	FinSi
+	Escribir 'PPS: ',PPS,';','PEC: ',PEC,';','PTO: ',PTO,';','PR5: ',PR5
+FinProceso
+
+SubProceso A<-Arrepentimiento(NS,SA5 Por Referencia,TOTA Por Referencia)
+	Si NS-1<=4 Entonces
+		A<-Falso
+	Sino
+		Si NS-1<=8 Entonces
+			Si AZAR(1)<0.4 Entonces
+				A<-Falso
+			Sino
+				Si NS-1=5 Entonces
+					SA5<-SA5+1
+				FinSi
+				A<-Verdadero
+				TOTA<-TOTA+1
+			FinSi
+		Sino
+			A<-Verdadero
+			TOTA<-TOTA+1
+		FinSi
+	FinSi
+FinSubProceso
+
+SubProceso R<-IntervaloArribo()
+	R<-AZAR(10)
+FinSubProceso
+
+SubProceso R<-TiempoAtencion()
+	R<-AZAR(20)
+FinSubProceso
+
